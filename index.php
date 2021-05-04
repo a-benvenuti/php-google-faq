@@ -35,7 +35,7 @@ $faq = [
 
             "Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.",
 
-            "<h4>Stabilire il paese associato al tuo account</h4>",
+            "<h3>Stabilire il paese associato al tuo account</h3>",
 
             "Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell'ultimo anno.",
 
@@ -68,7 +68,8 @@ $faq = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google fonts -->
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- /Google fonts -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
@@ -76,12 +77,53 @@ $faq = [
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- /CSS -->
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/452/google-logo.png" />
+    <!-- /favicon -->
     <title>Domande Frequenti – Privacy e termini</title>
 </head>
 
 <body>
-    
+    <header class="header">
+        <div class="header_top">
+            <div class="privacy">
+                <img src="https://1000marche.net/wp-content/uploads/2020/03/Google-logo.png" alt="logo-ext">
+                <h4>Privacy e termini</h4>
+            </div>
+            <div class="log">
+                <i class="fas fa-ellipsis-v"></i>
+                <a class="btn" href="https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Fpolicies.google.com%2Ffaq%3Fhl%3Dit&followup=https%3A%2F%2Fpolicies.google.com%2Ffaq%3Fhl%3Dit&hl=it&ec=GAZAoQQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Accedi</a>
+            </div>
+        </div>
+        <div class="header_nav">
+            <ul>
+                <li><a href="#">Introduzione</a></li>
+                <li><a href="#">Norme sulla privacy</a></li>
+                <li><a href="#">Termini di servizio</a></li>
+                <li><a href="#">Tecnologie</a></li>
+                <li><a class="active" href="#">Domande frequenti</a></li>
+            </ul>
+        </div>
+    </header>
 
+    <main class="faq">
+        <div class="container">
+            <?php
+            foreach ($faq as $elemento) {
+            ?>
+                <h2><?php echo $elemento["domanda"];  ?></h2>
+                <?php
+                foreach ($elemento["risposta"] as $sez) {
+                ?>
+                    <p><?php echo $sez; ?></p>
+                <?php
+                }
+                ?>
+            <?php
+            }
+            ?>
+        </div>
+    </main>
 </body>
 
 </html>
